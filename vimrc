@@ -60,6 +60,7 @@ filetype on
 filetype plugin indent on
 
 autocmd BufNewFile,BufRead *.zcml set ft=xml
+autocmd BufNewFile,BufRead *.load set ft=htmldjango
 
 " Set whitespace managing for every filetype, overriding standard
 " Configure vim to be PEP8 compliant when editing Python code
