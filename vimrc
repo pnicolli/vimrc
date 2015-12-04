@@ -106,3 +106,7 @@ augroup END " }
 
 " Let backspace be more friendly
 set backspace=indent,eol,start
+
+" Enable folding
+autocmd FileType python,xml,html,htmldjango,python.django,javascript,css set foldmethod=indent
+autocmd FileType python,xml,html,htmldjango,python.django,javascript,css set foldnestmax=2
