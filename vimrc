@@ -10,13 +10,14 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-surround'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-repeat'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -111,3 +112,8 @@ set backspace=indent,eol,start
 autocmd FileType python,xml,html,htmldjango,python.django,javascript,css set foldmethod=indent
 autocmd FileType python,xml,html,htmldjango,python.django,css set foldnestmax=2
 autocmd FileType javascript set foldnestmax=3
+
+" Configure vim-flake8
+let g:flake8_cmd="/Users/pieronicolli/Lab/utils/bin/flake8" " set custom flake8 binary
+let g:flake8_show_in_gutter=1 " show errors in gutter
+autocmd BufWritePost *.py call Flake8() " automatically run flake8 when saving
