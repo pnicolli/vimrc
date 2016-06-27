@@ -71,13 +71,13 @@ autocmd FileType tex setlocal wm=3          " Automatically wrap at 3 columns fr
 
 " Automatically remove trailing whitespace before saving
 " http://stackoverflow.com/a/1618401/1651545
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-autocmd FileType c,cpp,java,php,ruby,python,html,htmldjango,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+"fun! <SID>StripTrailingWhitespaces()
+    "let l = line(".")
+    "let c = col(".")
+    "%s/\s\+$//e
+    "call cursor(l, c)
+"endfun
+"autocmd FileType c,cpp,java,php,ruby,python,html,htmldjango,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 set number                          " Use line numbers
 set numberwidth=4                   " Minimum field width for line numbers
@@ -109,4 +109,5 @@ set backspace=indent,eol,start
 
 " Enable folding
 autocmd FileType python,xml,html,htmldjango,python.django,javascript,css set foldmethod=indent
-autocmd FileType python,xml,html,htmldjango,python.django,javascript,css set foldnestmax=2
+autocmd FileType python,xml,html,htmldjango,python.django,css set foldnestmax=2
+autocmd FileType javascript set foldnestmax=3
