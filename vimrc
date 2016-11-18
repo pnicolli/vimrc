@@ -14,6 +14,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+Plugin 'mxw/vim-jsx'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-repeat'
@@ -117,3 +118,6 @@ autocmd FileType javascript set foldnestmax=3
 let g:flake8_cmd="/Users/pieronicolli/Lab/utils/bin/flake8" " set custom flake8 binary
 let g:flake8_show_in_gutter=1 " show errors in gutter
 autocmd BufWritePost *.py call Flake8() " automatically run flake8 when saving
+
+" Let vim-jsx also parse js files
+" let g:jsx_ext_required = 0
