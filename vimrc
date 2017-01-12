@@ -121,3 +121,12 @@ autocmd BufWritePost *.py call Flake8() " automatically run flake8 when saving
 
 " Let vim-jsx also parse js files
 " let g:jsx_ext_required = 0
+
+" Disable ZZ
+nnoremap ZZ <nop>
+
+" Move through windows with CTRL + arrows
+nnoremap <silent> <C-left> <C-W>h
+nnoremap <silent> <C-right> <C-W>l
+nnoremap <silent> <C-up> <C-W>k
+nnoremap <silent> <C-down> <C-W>j
