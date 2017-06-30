@@ -23,6 +23,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -96,6 +97,7 @@ let g:airline_exclude_filenames=[]
 let g:airline_exclude_filetypes=[]
 "let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 " Colorscheme
 syntax enable
@@ -114,8 +116,8 @@ augroup END " }
 set backspace=indent,eol,start
 
 " Enable folding
-autocmd FileType python,xml,html,htmldjango,python.django,javascript,css set foldmethod=indent
-autocmd FileType python,xml,html,htmldjango,python.django,css set foldnestmax=2
+autocmd FileType python,xml,html,htmldjango,python.django,javascript,css,scss,less set foldmethod=indent
+autocmd FileType python,xml,html,htmldjango,python.django,css,scss,less set foldnestmax=2
 autocmd FileType javascript set foldnestmax=3
 
 " Configure vim-flake8
@@ -124,10 +126,10 @@ let g:flake8_show_in_gutter=1 " show errors in gutter
 autocmd BufWritePost *.py call Flake8() " automatically run flake8 when saving
 
 " Let vim-jsx also parse js files
-" let g:jsx_ext_required = 0
+let g:jsx_ext_required = 0
 
-" Disable ZZ
-nnoremap ZZ <nop>
+" Remap ZZ to open all folds
+nnoremap ZZ zR
 
 " Move through windows with CTRL + arrows
 nnoremap <silent> <C-left> <C-W>h
@@ -139,3 +141,24 @@ nnoremap <silent> <C-down> <C-W>j
 let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Configure ALE
+let g:ale_linters = {}
+let g:ale_linters['javascript'] = ['eslint', 'flow']
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_enter = 0
+"let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
+highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
+highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
+let g:ale_sign_error = 'X' " could use emoji
+let g:ale_sign_warning = '?' " could use emoji
+let g:ale_statusline_format = ['X %d', '? %d', '']
+" %linter% is the name of the linter that provided the message
+" %s is the error or warning message
+let g:ale_echo_msg_format = '%linter% says: %s'
+" Map keys to navigate between lines with errors and warnings.
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
