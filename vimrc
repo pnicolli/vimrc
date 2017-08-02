@@ -66,7 +66,7 @@ filetype on
 " Filetype indentation
 filetype plugin indent on
 
-autocmd BufNewFile,BufRead *.zcml set ft=xml
+autocmd BufNewFile,BufRead *.pt,*.zcml set ft=xml
 autocmd BufNewFile,BufRead *.load set ft=htmldjango
 
 " Set whitespace managing for every filetype, overriding standard
@@ -123,7 +123,7 @@ autocmd FileType javascript set foldnestmax=3
 " Configure vim-flake8
 let g:flake8_cmd="/Users/pieronicolli/Lab/utils/bin/flake8" " set custom flake8 binary
 let g:flake8_show_in_gutter=1 " show errors in gutter
-autocmd BufWritePost *.py call Flake8() " automatically run flake8 when saving
+"autocmd BufWritePost *.py call Flake8() " automatically run flake8 when saving
 
 " Let vim-jsx also parse js files
 let g:jsx_ext_required = 0
