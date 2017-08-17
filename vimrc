@@ -17,7 +17,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'honza/vim-snippets'
 Plugin 'mxw/vim-jsx'
-Plugin 'nvie/vim-flake8'
+"Plugin 'nvie/vim-flake8'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -121,8 +121,8 @@ autocmd FileType python,xml,html,htmldjango,python.django,css,scss,less set fold
 autocmd FileType javascript set foldnestmax=3
 
 " Configure vim-flake8
-let g:flake8_cmd="/Users/pieronicolli/Lab/utils/bin/flake8" " set custom flake8 binary
-let g:flake8_show_in_gutter=1 " show errors in gutter
+"let g:flake8_cmd="/Users/pieronicolli/Lab/utils/bin/flake8" " set custom flake8 binary
+"let g:flake8_show_in_gutter=1 " show errors in gutter
 "autocmd BufWritePost *.py call Flake8() " automatically run flake8 when saving
 
 " Let vim-jsx also parse js files
@@ -144,17 +144,25 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Configure ALE
 let g:ale_linters = {}
+let g:ale_linters['Dockerfile'] = ['hadolint']
+let g:ale_linters['css'] = ['stylelint']
 let g:ale_linters['javascript'] = ['eslint', 'flow']
+let g:ale_linters['python'] = ['flake8']
+let g:ale_linters['sass'] = ['stylelint']
+let g:ale_linters['scss'] = ['stylelint']
+let g:ale_linters['sh'] = ['shellcheck']
+let g:ale_linters['xml'] = ['xmllint']
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['python'] = ['autopep8']
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
 "let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-let g:ale_sign_error = 'X' " could use emoji
-let g:ale_sign_warning = '?' " could use emoji
+let g:ale_sign_error = '💩' " could use emoji
+let g:ale_sign_warning = '⚠️' " could use emoji
 let g:ale_statusline_format = ['X %d', '? %d', '']
 " %linter% is the name of the linter that provided the message
 " %s is the error or warning message
