@@ -15,6 +15,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+Plugin 'flowtype/vim-flow'
 Plugin 'honza/vim-snippets'
 Plugin 'mxw/vim-jsx'
 "Plugin 'nvie/vim-flake8'
@@ -170,3 +171,8 @@ let g:ale_echo_msg_format = '%linter% says: %s'
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
+
+" Configure vim-flow
+let g:flow#showquickfix = 0
+let g:flow#enable = 0 " This is handled by ale
+let g:flow#omnifunc = 1
