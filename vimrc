@@ -12,10 +12,11 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/MatchTagAlways'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'alvan/vim-closetag'
 Plugin 'bling/vim-airline'
+Plugin 'embear/vim-localvimrc'
 Plugin 'flowtype/vim-flow'
 Plugin 'honza/vim-snippets'
 Plugin 'mxw/vim-jsx'
@@ -26,6 +27,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'w0rp/ale'
+Plugin 'ycm-core/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -177,3 +179,8 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 let g:flow#showquickfix = 0
 let g:flow#enable = 0 " This is handled by ale
 let g:flow#omnifunc = 1
+
+" Configure vim-closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.pt,*.xml'
+let g:closetag_emptyTags_caseSensitive = 1
